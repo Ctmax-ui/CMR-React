@@ -19,16 +19,27 @@ const VendorLists = () => {
   useEffect(() => {
     let data = fetchedData?.data || [];
 
+    // Normalize and process search query
+    const normalizedQuery = searchQuery.toLowerCase().replace(/%/g, '');
+
     // Apply search filter
     if (searchQuery) {
-      data = data.filter(
-        (item) =>
-          item.companyName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.website.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.lastChecked.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.performance.toString().includes(searchQuery)
-      );
+      data = data.filter((item) => {
+        const normalizedPerformance = (item.performance || '')
+          .toString()
+          .replace(/%/g, '');
+
+        // Check if the normalized performance value matches the search query
+        const matchesPerformance = normalizedPerformance.includes(normalizedQuery);
+
+        return (
+          item.companyName.toLowerCase().includes(normalizedQuery) ||
+          item.website.toLowerCase().includes(normalizedQuery) ||
+          item.description.toLowerCase().includes(normalizedQuery) ||
+          item.lastChecked.toLowerCase().includes(normalizedQuery) ||
+          matchesPerformance
+        );
+      });
     }
 
     // Apply status filter
@@ -45,7 +56,11 @@ const VendorLists = () => {
         break;
       case "Performance":
         data = data.sort(
-          (a, b) => parseFloat(b.performance) - parseFloat(a.performance)
+          (a, b) => {
+            const performanceA = parseFloat((a.performance || '0').toString().replace(/%/g, ''));
+            const performanceB = parseFloat((b.performance || '0').toString().replace(/%/g, ''));
+            return performanceB - performanceA;
+          }
         );
         break;
       case "Description":
@@ -195,9 +210,9 @@ const VendorLists = () => {
                   <RiExpandUpDownFill />
                 </button>
               </th>
-              <th scope="col" className="pe-6 py-3 text-[1rem]">
+              {/* <th scope="col" className="pe-6 py-3 text-[1rem]">
                 Performance
-              </th>
+              </th> */}
               <th scope="col" className="pe-6 py-3 text-[1rem]">
                 Description
               </th>
