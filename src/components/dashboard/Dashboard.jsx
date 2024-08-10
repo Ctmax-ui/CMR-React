@@ -69,7 +69,7 @@ const Dashboard = () => {
         <div className="p-7">
           <div className="flex items-center gap-5">
             <div className="w-1/3 p-5 border-2 rounded-xl shadow-md hover:border-slate-400 transition-all cursor-pointer">
-              <div className="flex justify-between px-2">
+              <div className="flex justify-between">
                 <span className="bg-[#eaf0fb] rounded-full p-2">
                   <PiMoneyBold className=" font-bold text-xl text-[#4c44e2]" />
                 </span>
@@ -96,7 +96,7 @@ const Dashboard = () => {
             </div>
 
             <div className="w-1/3 p-5 border-2 rounded-xl shadow-md hover:border-slate-400 transition-all cursor-pointer">
-              <div className="flex justify-between px-2">
+              <div className="flex justify-between">
                 <span className="bg-[#eaf0fb] rounded-full p-2">
                   <TbUsersGroup className=" font-bold text-xl text-[#4c44e2]" />
                 </span>
@@ -123,7 +123,7 @@ const Dashboard = () => {
             </div>
 
             <div className="w-1/3 p-5 border-2 rounded-xl shadow-md hover:border-slate-400 transition-all cursor-pointer">
-              <div className="flex justify-between px-2">
+              <div className="flex justify-between">
                 <span className="bg-[#eaf0fb] rounded-full p-2">
                   <MdOutlineRemoveRedEye className=" font-bold text-xl text-[#4c44e2]" />
                 </span>

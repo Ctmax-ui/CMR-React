@@ -90,6 +90,13 @@ const VendorLists = () => {
     setCategoryFilter(category);
   };
 
+  const clearDataFilter = () => {
+    setFilteredData(fetchedData?.data || []);
+    setSearchQuery("");
+    setStatusFilter("");
+    setCategoryFilter("");
+  }
+
   return (
     <div className="mt-7 border-2 rounded-xl h-[400px] shadow-md">
       <div className="flex justify-between items-center border-b-2 p-5">
@@ -97,7 +104,7 @@ const VendorLists = () => {
           <div className="flex items-center gap-2">
             <p className="font-semibold text-xl">Vendor Activity History</p>
             <p className="bg-[#eaf0fb] text-[#4c44e2] px-2 py-1 rounded-full text-sm font-semibold">
-              {fetchedData && fetchedData?.data.length} Total
+              {filteredData && filteredData?.length || 0} Total
             </p>
           </div>
           <p className="mt-2 font-semibold text-slate-600">
@@ -138,10 +145,12 @@ const VendorLists = () => {
             </div>
 
             <div className="border px-5 py-3 rounded-full flex items-center font-semibold ">
+              <label htmlFor="dataStatus">
               <TbCurrencyDollar className="text-2xl text-slate-700" />
+              </label>
               <select
-                id="countries"
-                className="outline-none w-32 text-slate-700"
+                id="dataStatus"
+                className="outline-none w-32 text-slate-700 cursor-pointer"
                 onChange={(e) => handleStatusFilter(e.target.value)}
                 value={statusFilter}
               >
@@ -156,13 +165,13 @@ const VendorLists = () => {
               <TbTriangleSquareCircle className="text-2xl text-slate-700" />
               <select
                 id="categories"
-                className="outline-none w-32 text-slate-700"
+                className="outline-none w-32 text-slate-700 cursor-pointer"
                 onChange={(e) => handleCategoryFilter(e.target.value)}
                 value={categoryFilter}
               >
                 <option value="">All Categories</option>
                 <option>Company Name</option>
-                <option>Performance</option>
+                {/* <option>Performance</option> */}
                 <option>Description</option>
                 <option>Last Checked</option>
               </select>
@@ -173,12 +182,7 @@ const VendorLists = () => {
         <div>
           <button
             className="flex items-center border-2 px-4 py-2 rounded-full gap-1 font-semibold text-slate-700 hover:bg-[#4c44e2] hover:border-[#4c44e2] hover:text-white transition-all"
-            onClick={() => {
-              setFilteredData(fetchedData?.data || []);
-              setSearchQuery("");
-              setStatusFilter("");
-              setCategoryFilter("");
-            }}
+            onClick={clearDataFilter}
           >
             Clear All <IoCloseSharp className="text-2xl" />
           </button>

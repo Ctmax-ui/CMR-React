@@ -1,5 +1,5 @@
 import { RiHome2Line } from "react-icons/ri";
-import { AiFillSignal } from "react-icons/ai";
+import { MdOutlineCalendarToday } from "react-icons/md";
 import { GoPerson,GoBell  } from "react-icons/go";
 import { CiCalendar } from "react-icons/ci";
 import { SlEnergy } from "react-icons/sl";
@@ -24,7 +24,7 @@ export const Sidebar = () => {
             </li>
             <li>
               <button className=" text-2xl p-2 rounded-full">
-                <AiFillSignal />
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14"><path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" d="M4.75 7.5H.5v6h4.25m4.5-9h-4.5v9h4.5m0-13h4.25v13H9.25z"/></svg>
               </button>
             </li>
             <li>
@@ -34,7 +34,7 @@ export const Sidebar = () => {
             </li>
             <li>
               <button className=" text-2xl p-2 rounded-full">
-                <CiCalendar />
+                <MdOutlineCalendarToday className="text-slate-700" />
               </button>
             </li>
             <li>
@@ -51,9 +51,9 @@ export const Sidebar = () => {
           </ul>
 
           <ul className="flex items-center flex-col gap-3">
-            <li><button className="text-4xl text-slate-800"><IoSettingsOutline /></button></li>
+            <li><button className="text-4xl text-slate-800"><IoSettingsOutline className="" /></button></li>
             <li>
-              <div className="rounded-full w-[50px] h-[50px] relative">
+              <div className="rounded-full w-[90%] h-[90%] relative">
                 <span className="absolute  bottom-0 right-0 rounded-full border-white border-[2px]">
                 </span>
                 <img
