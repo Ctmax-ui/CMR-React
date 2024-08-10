@@ -203,9 +203,9 @@ const VendorLists = () => {
               </select>
             </div>
 
-            <button className="bg-[#4c44e2] text-white px-4 py-2 rounded-full">
+            {/* <button className="bg-[#4c44e2] text-white px-4 py-2 rounded-full">
               Go{" "}
-            </button>
+            </button> */}
           </div>
         </form>
 
