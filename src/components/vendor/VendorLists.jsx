@@ -15,6 +15,7 @@ const VendorLists = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [showRecomand, setShowRecomand] = useState(false);
 
   useEffect(() => {
     let updatedData = fetchedData?.data || [];
@@ -23,7 +24,7 @@ const VendorLists = () => {
 
     if (searchQuery) {
       updatedData = updatedData.filter((item) => {
-        console.log(item);
+        // console.log(item);
         const normalizedPerformance = (item.performance || "").toString();
 
         return (
@@ -44,7 +45,9 @@ const VendorLists = () => {
 
     switch (categoryFilter) {
       case "Company Name":
-        updatedData = updatedData.sort((a, b) => a.companyName.localeCompare(b.companyName));
+        updatedData = updatedData.sort((a, b) =>
+          a.companyName.localeCompare(b.companyName)
+        );
         break;
       case "Performance":
         updatedData = updatedData.sort((a, b) => {
@@ -54,7 +57,9 @@ const VendorLists = () => {
         });
         break;
       case "Description":
-        updatedData = updatedData.sort((a, b) => a.description.localeCompare(b.description));
+        updatedData = updatedData.sort((a, b) =>
+          a.description.localeCompare(b.description)
+        );
         break;
       case "Last Checked":
         updatedData = updatedData.sort(
@@ -87,9 +92,15 @@ const VendorLists = () => {
     setCategoryFilter("");
   };
 
-  const singleDataClickHandler = (e)=>{
-    console.log("there is no event on this btn");
-  }
+  const recomandSetQueryData = (companyName) => {
+    // console.log(companyName);
+    setShowRecomand(false)
+    setSearchQuery(companyName)
+  };
+
+  const focusQueryInputBox = (e) => {
+    setShowRecomand(true);
+  };
 
   return (
     <div className="mt-7 rounded-xl h-[400px] shadow-md">
@@ -121,21 +132,42 @@ const VendorLists = () => {
       <div className="flex justify-between border-x-2 items-center p-5">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="flex items-center gap-3">
-            <div className="border flex items-center overflow-hidden rounded-full cursor-pointer h-12">
+            <div className="border-y-2 flex items-center rounded-full h-12 relative">
               <input
-                className="w-full outline-none text-lg py-2 px-4"
+                className="w-full h-full outline-none text-lg border-s-2 rounded-s-full px-4 "
                 type="text"
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
+                onFocusCapture={focusQueryInputBox}
+                onBlur={() => setTimeout(() => {
+                  setShowRecomand(false)
+                }, 100)}
                 id="searchBox"
-                placeholder="Search by Company Name, Website, Description, Performance, or Last Checked"
+                placeholder={'Search By Company'}
               />
               <button
                 type="submit"
-                className="text-xl cursor-pointer w-10 hover:text-[#4c44e2]"
+                className="border-e-2 rounded-e-full flex justify-center items-center h-full w-1/3 text-xl cursor-pointer hover:bg-[#4c44e2] hover:text-white transition-all "
               >
                 <FaSearch />
               </button>
+
+              {showRecomand && (
+                <ul
+                  id="recomandation-table"
+                  className=" absolute bg-white border-2 rounded-xl h-[200px] w-[100%] top-14 z-10 left-1/2 -translate-x-1/2 hidde overflow-y-auto p-3 "
+                  style={{scrollbarWidth: "thin"}}
+                >
+                  {fetchedData &&
+                    [
+                      ...new Set(
+                        fetchedData?.data?.map((item) => item.companyName)
+                      ),
+                    ].map((companyName, index) => (
+                      <li onClick={() => recomandSetQueryData(companyName)} className=" cursor-pointer hover:bg-gray-200 p-1 mt-1 font-semibold px-4" key={index}>{companyName}</li>
+                    ))}
+                </ul>
+              )}
             </div>
 
             <div className="border px-5 py-3 rounded-full flex items-center font-semibold ">
@@ -170,6 +202,10 @@ const VendorLists = () => {
                 <option>Last Checked</option>
               </select>
             </div>
+
+            <button className="bg-[#4c44e2] text-white px-4 py-2 rounded-full">
+              Go{" "}
+            </button>
           </div>
         </form>
 
@@ -225,7 +261,10 @@ const VendorLists = () => {
           </thead>
           <tbody>
             {filteredData.map((value, key) => (
-              <VendorTable key={key} dataValue={value} singleDataClickHandler={singleDataClickHandler} />
+              <VendorTable
+                key={key}
+                dataValue={value}
+              />
             ))}
           </tbody>
         </table>
