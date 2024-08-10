@@ -146,7 +146,7 @@ const VendorLists = () => {
                 //     setShowRecomand(false);
                 //   }, 100)
                 // }
-                id="searchBox"
+                name="searchBox"
                 placeholder={"Search By Company"}
               />
               <button
@@ -182,7 +182,7 @@ const VendorLists = () => {
                         );
                       })
                       .reduce(
-                        (acc, value) => {
+                        (acc, value, index) => {
                           const query = searchQuery.toLowerCase();
 
                           const companyNameIndex = value.companyName
@@ -210,7 +210,7 @@ const VendorLists = () => {
                                   recomandSetQueryData(selectedText)
                                 }
                                 className="cursor-pointer hover:bg-gray-200 p-1 mt-1 font-semibold px-4"
-                                key={Math.random() * 1000}
+                                key={index}
                               >
                                 <span>
                                   {companyNameIndex !== -1 ? (
