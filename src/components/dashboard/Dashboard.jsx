@@ -137,28 +137,28 @@ const Dashboard = () => {
                   <ul className="flex w-1/2 relative">
                     <li className="w-[30px] h-[30px] left-10 top-0  border-2 border-white rounded-full">
                       <img
-                        className="rounded-full h-full w-full"
+                        className="rounded-full left-[0.2rem] h-full w-full"
                         src="https://xsgames.co/randomusers/assets/avatars/male/0.jpg"
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-5 top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[1rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
-                        src="https://xsgames.co/randomusers/assets/avatars/male/1.jpg"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/10.jpg"
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-10 top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[2rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
-                        src="https://xsgames.co/randomusers/assets/avatars/male/3.jpg"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/30.jpg"
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-14 top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[3rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
@@ -166,7 +166,7 @@ const Dashboard = () => {
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-[4.5rem] top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[4rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
@@ -174,7 +174,7 @@ const Dashboard = () => {
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-[5.5rem] top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[5rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
@@ -182,7 +182,7 @@ const Dashboard = () => {
                       />
                     </li>
                     <li
-                      className={`w-[30px] h-[30px] absolute left-[6.5rem] top-0  border-2 border-white rounded-full`}
+                      className={`w-[30px] h-[30px] absolute left-[6rem] top-0  border-2 border-white rounded-full`}
                     >
                       <img
                         className="rounded-full h-full w-full"
