@@ -141,11 +141,11 @@ const VendorLists = () => {
                 onChange={(e) => handleSearch(e.target.value)}
                 onChangeCapture={() => setShowRecomand(true)}
                 onEmptied={() => setShowRecomand(false)}
-                // onBlur={() =>
-                //   setTimeout(() => {
-                //     setShowRecomand(false);
-                //   }, 100)
-                // }
+                onBlur={() =>
+                  setTimeout(() => {
+                    setShowRecomand(false);
+                  }, 100)
+                }
                 name="searchBox"
                 placeholder={"Search By Company"}
               />
