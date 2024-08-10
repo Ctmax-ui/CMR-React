@@ -1,7 +1,7 @@
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-const VendorTable = (value) => {
-  console.log(value);
+const VendorTable = ({dataValue, singleDataClickHandler}) => {
+  // console.log(value);
 
   const paymentStatus = (status) => {
     switch (status) {
@@ -21,7 +21,7 @@ const VendorTable = (value) => {
 
   return (
     <>
-      <tr className="bg-white border-b   hover:bg-gray-50 -600">
+      <tr className="bg-white border-b-2 hover:bg-gray-50 -600">
         <td className="w-4 p-4">
           <div className="flex items-center">
             <input
@@ -43,16 +43,16 @@ const VendorTable = (value) => {
             <div className="w-[40px] h-[40px]">
               <img
                 className="w-full h-full rounded-full object-cover"
-                src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${value.dataValue.website}&size=64`}
+                src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${dataValue.website}&size=64`}
                 alt=""
               />
             </div>
             <div className="">
               <p className="font-semibold text-[1rem]">
-                {value.dataValue.companyName || "Unknown"}
+                {dataValue.companyName || "Unknown"}
               </p>
               <p className="text-slate-500">
-                {value.dataValue.website || "Unknown"}
+                {dataValue.website || "Unknown"}
               </p>
             </div>
           </div>
@@ -62,29 +62,29 @@ const VendorTable = (value) => {
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div
               className="px-3 bg-[#4c44e2] h-2.5 rounded-full"
-              style={{ width: `${value.dataValue.performance || 0}%` }}
+              style={{ width: `${dataValue.performance || 0}%` }}
             ></div>
           </div>
-          <p className="font-bold">{value.dataValue.performance || 0}%</p>
+          <p className="font-bold">{dataValue.performance || 0}%</p>
         </td>
         <td className="">
           <p className="text-[1rem] text-slate-700 font-bold">
-            {value.dataValue.description || "Unknown"}
+            {dataValue.description || "Unknown"}
           </p>
           <p className="text-slate-500 font-medium text-md">
-            {value.dataValue.details || "Unknown"}
+            {dataValue.details || "Unknown"}
           </p>
         </td>
-        <td className="">{value.dataValue.lastChecked || "Unknown"}</td>
+        <td className="">{dataValue.lastChecked || "Unknown"}</td>
 
         <td className="flex items-center">
-          <div className={`border px-3 py-1 font-bold rounded-full ${paymentStatus(value.dataValue.status)}`}>
-            {value.dataValue.status}
+          <div className={`border px-3 py-1 font-bold rounded-full ${paymentStatus(dataValue.status)}`}>
+            {dataValue.status}
           </div>
         </td>
 
         <td className="">
-          <button>
+          <button onClick={(e)=>singleDataClickHandler(e)}>
             <BsThreeDotsVertical className="text-xl" />
           </button>
         </td>

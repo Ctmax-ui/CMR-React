@@ -1,4 +1,3 @@
-import React from "react";
 import { FiUploadCloud } from "react-icons/fi";
 import { PiMoneyBold } from "react-icons/pi";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -8,14 +7,11 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import VendorLists from "../vendor/VendorLists";
 
 const Dashboard = () => {
-  const image =
-    "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg";
 
 
   return (
     <>
-      <div className="border w-[95%] absolute right-0">
-        
+      <div className="border h-full w-[95%] absolute right-0">
         <div className="border w-full h-auto p-5 pb-0">
           <div className="flex justify-between">
             <h2 className=" font-bold text-slate-800 text-2xl">
@@ -139,41 +135,59 @@ const Dashboard = () => {
                   <p className=" font-bold text-4xl">28</p>
 
                   <ul className="flex w-1/2 relative">
-                    <li
-                      // key={key}
-                      className="w-[30px] h-[30px] left-10 top-0  border-2 border-white rounded-full"
-                    >
-                      <img className="rounded-full h-full w-full" src={image} />
+                    <li className="w-[30px] h-[30px] left-10 top-0  border-2 border-white rounded-full">
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/0.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-5 top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/1.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-10 top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/3.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-14 top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/4.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-[4.5rem] top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/5.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-[5.5rem] top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/6.jpg"
+                      />
                     </li>
                     <li
                       className={`w-[30px] h-[30px] absolute left-[6.5rem] top-0  border-2 border-white rounded-full`}
                     >
-                      <img className="rounded-full h-full w-full" src={image} />
+                      <img
+                        className="rounded-full h-full w-full"
+                        src="https://xsgames.co/randomusers/assets/avatars/male/7.jpg"
+                      />
                     </li>
                   </ul>
                 </div>

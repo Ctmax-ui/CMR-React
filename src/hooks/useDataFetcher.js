@@ -15,7 +15,6 @@ const useDataFetcher = (url, dependec) => {
                     method: 'GET',
                     headers: {
                         accept: 'application/json',
-                        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`
                     }
                 })).json();
                SetFetchedData(result);
