@@ -160,7 +160,7 @@ const VendorLists = () => {
               {showRecomand && (
                 <ul
                   id="recomandation-table"
-                  className=" absolute bg-white border-2 rounded-xl h-[200px] w-[100%] top-14 z-10 left-1/2 -translate-x-1/2 hidde overflow-y-auto p-3 "
+                  className=" absolute bg-white border-2 rounded-xl min-h-[50px] max-h-[300px] w-[100%] top-14 z-10 left-1/2 -translate-x-1/2 hidde overflow-y-auto p-3 "
                   style={{ scrollbarWidth: "thin" }}
                 >
                   <RecomandatonLists
